@@ -4,6 +4,12 @@ if [[ $DEBUG == True ]]; then
     set -x
 fi
 
+# EGG_INFO
+if [[ $SETUP_CMD == egg_info ]]; then
+    echo "Using system python for egg_info, exiting ci-helpers"
+    return  # no more dependencies needed
+fi
+
 echo "==================== Starting executing ci-helpers scripts ====================="
 
 # Install conda
