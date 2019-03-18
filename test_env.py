@@ -18,6 +18,7 @@ if not LooseVersion(sys.version) < '3.7':
                                      capture_output=True,
                                      text=True).stdout.split()[1]
     if CONDA_VERSION is not None and CONDA_VERSION != 'stable':
+        print("co", CONDA_VERSION, "in", installed_conda)
         assert LooseVersion(CONDA_VERSION) == LooseVersion(installed_conda)
 
 
