@@ -14,12 +14,10 @@ PYTEST_LT_37 = LooseVersion(pytest.__version__) < LooseVersion('3.7')
 # avoid extra hacking with getting stdout
 if not LooseVersion(sys.version) < '3.7':
     CONDA_VERSION = os.environ.get('CONDA_VERSION')
-    installed_conda = subprocess.run(["conda", "--version"],
-                                     capture_output=True,
-                                     text=True).stdout.split()[1]
-    if CONDA_VERSION is not None and CONDA_VERSION != 'stable':
-        print("co", CONDA_VERSION, "in", installed_conda)
-        print(os.environ)
+    if CONDA_VERSION:
+        installed_conda = subprocess.run(["conda", "--version"],
+                                         capture_output=True,
+                                         text=True).stdout.split()[1]
         assert LooseVersion(CONDA_VERSION) == LooseVersion(installed_conda)
 
 
