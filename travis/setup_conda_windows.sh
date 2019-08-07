@@ -12,10 +12,10 @@ fi
 wget https://repo.continuum.io/miniconda/Miniconda3-${MINICONDA_VERSION}-Windows-x86_64.exe -O miniconda.exe
 
 dir
-miniconda.exe /InstallationType=JustMe /RegisterPython=0 /S /D=$HOME\miniconda
+./miniconda.exe /InstallationType=JustMe /RegisterPython=0 /S /D=$HOME/miniconda
 export PATH="$HOME/miniconda/scripts:$HOME/miniconda/:$PATH";
 
-PIN_FILE_CONDA="$HOME/miniconda3/conda-meta/pinned"
+PIN_FILE_CONDA="$HOME/miniconda/conda-meta/pinned"
 PIN_FILE="$HOME/miniconda/envs/test/conda-meta/pinned"
 
 # Install common Python dependencies
