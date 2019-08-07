@@ -9,12 +9,13 @@ if [[ -z "${MINICONDA_VERSION}" ]]; then
     MINICONDA_VERSION=4.5.4
 fi
 
-echo "installing miniconda3"
-choco install miniconda3 --params="'/AddToPath:1'" --version="$MINICONDA_VERSION";
-export PATH="/c/tools/miniconda3/scripts:/c/tools/miniconda3/:$PATH";
+wget https://repo.continuum.io/miniconda/Miniconda3-${MINICONDA_VERSION}-Windows-x86_64.sh -O miniconda.sh
+bash miniconda.sh -b -p $HOME/miniconda
+export PATH="$HOME/miniconda/bin:$PATH"
+export PATH="$HOME/miniconda3/scripts:$HOME/miniconda3/:$PATH";
 
-PIN_FILE_CONDA="/c/tools/miniconda3/conda-meta/pinned"
-PIN_FILE="/c/tools/miniconda3/envs/test/conda-meta/pinned"
+PIN_FILE_CONDA="$HOME/miniconda3/conda-meta/pinned"
+PIN_FILE="$HOME/miniconda3/envs/test/conda-meta/pinned"
 
 # Install common Python dependencies
 echo "setting up common dependencies"
