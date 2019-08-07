@@ -31,7 +31,10 @@ matrix:
           env: PYTHON_VERSION=3.4 PYTEST_VERSION=3.1 PIP_FALLBACK=false
 
         - os: windows
-          env: PYTHON_VERSION=3.7
+          env: PYTHON_VERSION=3.7 MINICONDA_VERSION='latest'
+
+        - os: windows
+          env: PYTHON_VERSION=3.6 NUMPY_VERSION=stable
 
         # -> tests sunpy dev
         # -> Test falling back on pip when conda install is not working.
